@@ -6,9 +6,15 @@ defmodule ElixirV8.Mixfile do
      version: "0.0.1",
      elixir: "~> 1.2",
      description: "Embed the V8 Javascript Interpreter into Elixir",
+     compilers: [:make, :elixir, :app],
+     aliases: aliases,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
+  end
+
+  defp aliases do
+    [clean: ["clean", "clean.make"]]
   end
 
   def application do
